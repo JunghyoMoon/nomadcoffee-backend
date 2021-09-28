@@ -1,0 +1,32 @@
+{
+    "name": "nomadcoffee-backend",
+    "version": "1.0.0",
+    "description": "for instaclone challenge practice",
+    "repository": "https://github.com/JunghyoMoon/nomadcoffee-backend.git",
+    "author": "junghyomoon",
+    "license": "MIT",
+    "scripts": {
+        "dev": "nodemon --exec babel-node ./server.js",
+        "migrate": "npx prisma migrate dev",
+        "studio": "npx prisma studio"
+    },
+    "dependencies": {
+        "@graphql-tools/load-files": "^6.4.0",
+        "@graphql-tools/merge": "^8.1.2",
+        "@graphql-tools/schema": "^8.2.0",
+        "apollo-server": "^3.3.0",
+        "apollo-server-core": "^3.3.0",
+        "dotenv": "^10.0.0",
+        "graphql": "^15.6.0",
+        "graphql-tools": "^8.2.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.5",
+        "@babel/node": "^7.15.4",
+        "@babel/preset-env": "^7.15.6",
+        "@prisma/client": "3.1.1",
+        "nodemon": "^2.0.13",
+        "prisma": "3.1.1"
+    }
+}
