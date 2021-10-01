@@ -1,5 +1,5 @@
-import bcrypt from "bcryptjs";
-import client from "../client";
+import bcrypt from "bcrypt";
+import client from "../../client";
 
 export default {
     Mutation: {
@@ -22,12 +22,13 @@ export default {
                     },
                 });
                 if (existingUser) {
-                    throw new Error(
-                        "this username/email have been taken already."
-                    );
+                    return {
+                        ok: false,
+                        error: "this username/email have been taken already.",
+                    };
                 }
                 const uglyPassword = await bcrypt.hash(password, 10);
-                const user = await client.user.create({
+                const createdUser = await client.user.create({
                     data: {
                         username,
                         email,
@@ -38,10 +39,15 @@ export default {
                         githubUsername,
                     },
                 });
-                // how to return "ok: true/false..?"
-                return user;
+                return {
+                    ok: true,
+                    id: createdUser.id,
+                };
             } catch (error) {
-                return error;
+                return {
+                    ok: false,
+                    error: error.message,
+                };
             }
         },
     },

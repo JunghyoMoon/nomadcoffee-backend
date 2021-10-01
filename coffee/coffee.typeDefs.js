@@ -14,15 +14,4 @@ export default gql`
         coffees: [Coffee]
         coffee(id: Int!): Coffee
     }
-
-    type Mutation {
-        createCoffee(name: String!, taste: String, country: String): Coffee
-        deleteCoffee(id: Int!): Coffee
-        updateCoffee(
-            id: Int!
-            name: String
-            taste: String
-            country: String
-        ): Coffee
-    }
 `;

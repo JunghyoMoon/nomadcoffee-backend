@@ -1,9 +1,8 @@
-import client from "../client";
+import client from "../../client";
 
 export default {
     Query: {
-        users: () => client.user.findMany(),
-        user: (_, { username }) =>
+        seeProfile: (_, { username }) =>
             client.user.findUnique({
                 where: {
                     username,

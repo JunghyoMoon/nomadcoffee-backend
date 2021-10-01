@@ -12,21 +12,4 @@ export default gql`
         createdAt: String!
         updatedAt: String!
     }
-
-    type Mutation {
-        createAccount(
-            username: String!
-            email: String!
-            name: String
-            location: String!
-            password: String!
-            avatarURL: String
-            githubUsername: String
-        ): User
-    }
-
-    type Query {
-        users: [User]
-        user(username: String!): User
-    }
 `;
